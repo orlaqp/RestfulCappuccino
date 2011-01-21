@@ -32,7 +32,7 @@ CappuccinoRestfulResourceWillDestroy = @"CappuccinoRestfulResourceWillDestroy";
 CappuccinoRestfulResourceDidDestroy = @"CappuccinoRestfulResourceDidDestroy";
 CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestroy";
 
-@implementation CappuccinoRestful : CPObject
+@implementation RestfulCappuccino : CPObject
 {
 	CPString identifier @accessors;
 }
@@ -44,7 +44,6 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 
 + (void)addObserver:(id)anObserver
 {	
-	debugger;
 	var center = [CPNotificationCenter defaultCenter];
 	
 	if ([anObserver respondsToSelector:@selector(resourceWillLoad:)]) 
