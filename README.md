@@ -24,14 +24,34 @@ Once you have your files in place (I am assuming you put them into Frameworks/Re
 
 This is a basic declaration of a RestfulCappuccino class. A simple Cappuccino class inheriting from RestfulCappuccino. With this simple class you could retrieve any data from the server side Synchronously or Asynchronously. Check the following examples:
 
+## Let's talk about Notifications first ##
+
+Restful Cappuccino generate notifications for every single CRUD method either synchronous or asynchronous. Let me explain what information you can get from the notifications. The RestfulCappuccinoNotification object is used to pass important notification information. Let's start by showing you the definition for this class:
+
+	@implementation RestfulCappuccinoNotification : CPObject
+	{
+		id			requestor @accessors; // Who request the method.
+		CPString	modelName @accessors; // The model that requested the method, in our example this would "Student"
+		CPString	eventType @accessors; // Type of the event: Load, Save, Update, Remove is mostly for internal use.
+		id			eventParameters @accessors; // The parameters passed to the request (not implemented yet, is coming soon)
+		id			eventData @accessors; // Some data realated to the method's call. It vary depending on the method.
+	}
+
+	@end
+
+Once you are subscribe to the notification, you could retrieve this information like this:
+
+	[[aNotification object] restfulNotification] // This call will return the RestfulCappuccinoNotification object for that notification
+
+
 
 ## How to Load Data ##
 
 Retrieve all records (the http request would look like this server_address/students/ ) 
 
-	var students = [Student all]; // This is a synchronous call that return an array of Students from the Server
+	var students = [Student all]; // This is a synchronous call that returns an array of Students from the Server
 	
-	var students = [Student allWithRequestor:self] // This is a synchronous call that return an array of Students from the Server. 
-												   // And generate a Notification with the requestor included
+	var students = [Student allWithRequestor:self]; // This is a synchronous call that returns an array of Students from the Server. 
+												   
 
 
