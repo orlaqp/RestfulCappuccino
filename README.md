@@ -31,6 +31,7 @@ Retrieve all records (the http request would look like this server_address/stude
 
 	var students = [Student all]; // This is a synchronous call that return an array of Students from the Server
 	
-	var students = [Student allWithRequestor:self] // This is a synchronous call that return an array of Students from the Server. And generate a Notification with the requestor included
+	var students = [Student allWithRequestor:self] // This is a synchronous call that return an array of Students from the Server. 
+												   // And generate a Notification with the requestor included
 
 
