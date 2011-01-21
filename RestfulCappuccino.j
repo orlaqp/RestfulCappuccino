@@ -6,7 +6,7 @@
 @import "CRSupport.j"
 
 
-@implementation CappuccinoRestfulNotification : CPObject
+@implementation RestfulCappuccinoNotification : CPObject
 {
 	id			requestor @accessors;
 	CPString	modelName @accessors;
@@ -37,7 +37,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 	CPString identifier @accessors;
 }
 
-+ (CappuccinoRestfulNotification)restfulNotification
++ (RestfulCappuccinoNotification)restfulNotification
 {
 	return notificationInfo;
 }
@@ -231,7 +231,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 
 @end
 
-@implementation CappuccinoRestful (CRUD)
+@implementation RestfulCappuccino (CRUD)
 {
 	
 }
@@ -397,7 +397,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 
 @end
 
-@implementation CappuccinoRestful (Notifications)
+@implementation RestfulCappuccino (Notifications)
 {
 	
 }
