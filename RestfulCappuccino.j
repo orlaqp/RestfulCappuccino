@@ -241,6 +241,11 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 	return [self findWithParameters:nil andRequestor:nil];
 }
 
++ (CPArray)allWithRequestor:(id)theRequestor
+{
+	return [self findWithParameters:nil andRequestor:theRequestor];
+}
+
 + (void)allAsyncWithRequestor:(id)theRequestor
 {
 	[self findAsyncWithParameters:nil andRequestor:theRequestor];
