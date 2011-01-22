@@ -19,14 +19,14 @@
 
 var defaultRecordIdentifierKey = @"id",
     classAttributeNames  = [CPDictionary dictionary],
-	notificationInfo = [[CappuccinoRestfulNotification alloc] init];
+	notificationInfo = [[RestfulCappuccinoNotification alloc] init];
 
 RestfulCappuccinoResourceWillLoad = @"RestfulCappucinoResourceWillLoad";
 RestfulCappuccinoResourceDidLoad = @"RestfulCappuccinoResourceDidLoad";
-RestfulCappuccinoResourcesWillLoad = @"CappucinoRestfulResourcesWillLoad";
+RestfulCappuccinoResourcesWillLoad = @"RestfulCappuccinoResourcesWillLoad";
 RestfulCappuccinoResourcesDidLoad = @"RestfulCappuccinoResourcesDidLoad";
 RestfulCappuccinoResourceWillSave = @"RestfulCappuccinoResourceWillSave";
-RestfulCappuccinoResourceDidSave = @"CappuccinoRestfulRecordDidSave";
+RestfulCappuccinoResourceDidSave = @"RestfulCappuccinoResourceDidSave";
 RestfulCappuccinoResourceDidNotSave = @"RestfulCappuccinoResourceDidNotSave";
 RestfulCappuccinoResourceWillDestroy = @"RestfulCappuccinoResourceWillDestroy";
 RestfulCappuccinoResourceDidDestroy = @"RestfulCappuccinoResourceDidDestroy";
