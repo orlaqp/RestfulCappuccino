@@ -311,6 +311,18 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
     }
 }
 
++ (void)createAsync:(JSObject)attributes
+{
+	var resource = [self new:attributes];
+	[resource saveAsync];
+}
+
++ (void)createAsyncWithParameters:(JSObject)parameters andRequestor:(id)theRequestor
+{
+	var resource = [self new:attributes];
+	[resource saveAsyncWitRequestor:theRequestor];
+}
+
 - (BOOL)save
 {
 	return [self saveWithRequestor:nil];
