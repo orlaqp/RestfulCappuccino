@@ -55,14 +55,14 @@ Once you are subscribe to the notification, you could retrieve the RestfulCappuc
 	[[aNotification object] restfulNotification] // This call will return the RestfulCappuccinoNotification object for that notification
 
 
-## Creating new Records ##
+## Creating new Records  (C) ##
 
 	var studemt = [Student create:{first_name:"Steven", last_name: "Somthing"}];
 	
 	var studemt = [Student create:{first_name:"Steven", last_name: "Somthing"} andRequestor:self];
 
 
-## Retrieving Data using Synchronous and Asynchronous calls ##
+## Retrieving Data using Synchronous and Asynchronous calls (R) ##
 
 	Synchronous
 	-----------
@@ -87,6 +87,43 @@ Once you are subscribe to the notification, you could retrieve the RestfulCappuc
 	
 	[Student findAsyncWithParameters:{first_name: "Steve"} andRequestor:self];
 	
-		
+## Updating Records (U) ##
+
+	
+	Synchronous
+	-----------
+
+	var succesfullySaved = [student save]; // student should be an instance of RestfulCappuccino
+	
+	var succesfullySaved = [student saveWithRequestor:self];
 
 
+	Asynchronous
+	------------
+	
+	[student saveAsync];
+	
+	[student saveAsyncWithRequestor:self];
+	
+
+## Deleting Records (D) ##
+
+	
+	Synchronous
+	-----------
+
+	var succesfullyRemoved = [student destroy]; // student should be an instance of RestfulCappuccino
+	
+	var succesfullyRemoved = [student destroyWithRequestor:self];
+
+
+	Asynchronous
+	------------
+	
+	[student destroyAsync];
+	
+	[student destroyAsyncWithRequestor:self];
+
+
+
+ documentation not completed yet ..... more coming soon ...
