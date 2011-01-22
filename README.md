@@ -56,13 +56,34 @@ Once you are subscribe to the notification, you could retrieve the RestfulCappuc
 
 
 
-## How to Retrieve Data ##
+## How to Retrieve Data using Synchronous and Asynchronous calls ##
 
 Retrieve all records (the http request would look like this server_address/students/ ) 
 
-	var students = [Student all]; // This is a synchronous call that returns an array of Students from the Server
+	Synchronous
+	-----------
+
+	var students = [Student all];
 	
-	var students = [Student allWithRequestor:self]; // This is a synchronous call that returns an array of Students from the Server. 
+	var students = [Student allWithRequestor:self];
 												   
+	var students = [Student findWithParameters:{first_name: "Steven"}];
+	
+	var students = [Student findWithParameters:{first_name: "Steven"} andRequestor:self];
+	
+
+	Asynchronous
+	------------
+	
+	[Student allAsync];
+	
+	[Student allAsyncWithRequestor:self];
+	
+	[Student findAsyncWithParameters:{first_name: "Steven"}];
+	
+	[Student findAsyncWithParameters:{first_name: "Steve"} andRequestor:self];
+	
+	
+	
 
 

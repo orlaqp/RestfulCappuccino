@@ -246,9 +246,19 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 	return [self findWithParameters:nil andRequestor:theRequestor];
 }
 
++ (void)allAsync
+{
+	[self findAsyncWithParameters:nil andRequestor:nil];
+}
+
 + (void)allAsyncWithRequestor:(id)theRequestor
 {
 	[self findAsyncWithParameters:nil andRequestor:theRequestor];
+}
+
++(CPArray)findWithParameters:(id)parameters
+{
+	return [self findWithParameters:parameters andRequestor:theRequestor];
 }
 
 + (CPArray)findWithParameters:(id)parameters andRequestor:(id)theRequestor
@@ -266,6 +276,11 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
     } else {
         return [self resourcesDidLoadWithResponse:response[1] andRequestor:theRequestor];
     }
+}
+
++ (void)findAsyncWithParameters:(id)parameters
+{
+	[self findAsyncWithParameters:parameters andRequestor:nil];
 }
 
 + (void)findAsyncWithParameters:(id)parameters andRequestor:(id)theRequestor
