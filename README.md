@@ -20,6 +20,24 @@ Once you have your files in place (I am assuming you put them into Frameworks/Re
 		CPString	lastName @accessors;
 	}
 
+	// You do not ned to do this if you are using your model just to retrieve data from the server.
+	- (JSObject)attributes
+    {
+        return {
+          "student": {
+            "first_name":firstName,
+            "last_name":lastName
+          }
+        };
+    }
+
+	// At this moment Restful cappuccino does not do a very job with pluralization it just add an 's' at the end.
+	// If your class need a different resource path update this class method.
+	+ (CPURL)resourcePath
+	{
+	    return [CPURL URLWithString:@"/" + [self railsName] + @"s"];
+	}
+
 	@end
 
 This is a basic declaration of a RestfulCappuccino class. A simple Cappuccino class inheriting from RestfulCappuccino. With this simple class you could retrieve any data from the server side Synchronously or Asynchronously. Check the following examples:
@@ -60,6 +78,8 @@ Once you are subscribe to the notification, you could retrieve the RestfulCappuc
 	var studemt = [Student create:{first_name:"Steven", last_name: "Somthing"}];
 	
 	var studemt = [Student create:{first_name:"Steven", last_name: "Somthing"} andRequestor:self];
+	
+### Notification Data ###
 
 
 ## Retrieving Data using Synchronous and Asynchronous calls (R) ##
