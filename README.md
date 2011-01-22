@@ -55,10 +55,14 @@ Once you are subscribe to the notification, you could retrieve the RestfulCappuc
 	[[aNotification object] restfulNotification] // This call will return the RestfulCappuccinoNotification object for that notification
 
 
+## Creating new Records ##
 
-## How to Retrieve Data using Synchronous and Asynchronous calls ##
+	var studemt = [Student create:{first_name:"Steven", last_name: "Somthing"}];
+	
+	var studemt = [Student create:{first_name:"Steven", last_name: "Somthing"} andRequestor:self];
 
-Retrieve all records (the http request would look like this server_address/students/ ) 
+
+## Retrieving Data using Synchronous and Asynchronous calls ##
 
 	Synchronous
 	-----------
@@ -83,7 +87,6 @@ Retrieve all records (the http request would look like this server_address/stude
 	
 	[Student findAsyncWithParameters:{first_name: "Steve"} andRequestor:self];
 	
-	
-	
+		
 
 
