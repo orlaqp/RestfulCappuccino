@@ -274,7 +274,7 @@ RestfulCappuccinoResourceDidNotDestroy = @"RestfulCappuccinoResourceDidNotDestro
     if (response[0] >= 400) {
         return nil;
     } else {
-        return [self resourcesDidLoadWithResponse:response[1] andRequestor:theRequestor];
+        return [self resourcesDidLoadWithResponse:response[1] parameters:parameters andRequestor:theRequestor];
     }
 }
 
@@ -413,7 +413,7 @@ RestfulCappuccinoResourceDidNotDestroy = @"RestfulCappuccinoResourceDidNotDestro
 	switch (aConnection.eventType)
 	{
 		case 'Load':
-			[self resourcesDidLoadWithResponse:aResponse andRequestor:aConnection.requestor];
+			[self resourcesDidLoadWithResponse:aResponse parameters:aConnection.eventParameters andRequestor:aConnection.requestor];
 			break;
 		case 'Save':
 			[aConnection.modelTarget resourceDidSaveWithResponse:aResponse andRequestor:aConnection.requestor];
@@ -434,6 +434,7 @@ RestfulCappuccinoResourceDidNotDestroy = @"RestfulCappuccinoResourceDidNotDestro
 	
 }
 
+/*
 // Resource Notifications
 + (CPURLRequest)resourceWillLoad
 {
@@ -444,7 +445,6 @@ RestfulCappuccinoResourceDidNotDestroy = @"RestfulCappuccinoResourceDidNotDestro
 + (CPURLRequest)resourceWillLoad:(id)params
 {
     var path             = [self resourcePath];
-        //notificationName = [self className] + "CollectionWillLoad";
 
     if (params) {
         if (params.isa && [params isKindOfClass:CPDictionary]) {
@@ -477,13 +477,15 @@ RestfulCappuccinoResourceDidNotDestroy = @"RestfulCappuccinoResourceDidNotDestro
     return resource;
 }
 
+*/
+
+
 // Resourcess notifications
 // can handle a JSObject or a CPDictionary
 + (CPURLRequest)resourcesWillLoadWithParameters:(id)params andRequestor:(id)theRequestor
 {
     var path             = [self resourcePath];
-        //notificationName = [self className] + "CollectionWillLoad";
-
+  
     if (params) {
         if (params.isa && [params isKindOfClass:CPDictionary]) {
             path += ("?" + [CPString paramaterStringFromCPDictionary:params]);
@@ -499,19 +501,20 @@ RestfulCappuccinoResourceDidNotDestroy = @"RestfulCappuccinoResourceDidNotDestro
 	[notificationInfo setRequestor:theRequestor];
 	[notificationInfo setModelName:[self className]];
 	[notificationInfo setEventType:@"Load"];
+	[notificationInfo setEventParameters:params];
 	[notificationInfo setEventData:nil];
 
     var request = [CPURLRequest requestJSONWithURL:path];
 	request.eventType = [notificationInfo eventType];
+	request.eventParameters = [notificationInfo eventParameters];
     [request setHTTPMethod:@"GET"];
-
 
     [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourcesWillLoad object:self];
 
     return request;
 }
 
-+ (CPArray)resourcesDidLoadWithResponse:(CPString)aResponse andRequestor:(id)theRequestor
++ (CPArray)resourcesDidLoadWithResponse:(CPString)aResponse parameters:(id)theParameters andRequestor:(id)theRequestor
 {
     var resourceArray    = [CPArray array];
         //notificationName = [self className] + "CollectionDidLoad";
@@ -534,6 +537,7 @@ RestfulCappuccinoResourceDidNotDestroy = @"RestfulCappuccinoResourceDidNotDestro
 	[notificationInfo setRequestor:theRequestor];
 	[notificationInfo setModelName:[self className]];
 	[notificationInfo setEventType:@"Load"];
+	[notificationInfo setEventParameters:theParameters];
 	[notificationInfo setEventData:resourceArray];
     [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourcesDidLoad object:self];
     return resourceArray;
