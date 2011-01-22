@@ -79,7 +79,7 @@ Once you are subscribe to the notification, you could retrieve the RestfulCappuc
 	
 	var studemt = [Student create:{first_name:"Steven", last_name: "Somthing"} andRequestor:self];
 	
-#### Notification Data ####
+	#### Notification Data ####
 
 
 ## Retrieving Data using Synchronous and Asynchronous calls (R) ##
