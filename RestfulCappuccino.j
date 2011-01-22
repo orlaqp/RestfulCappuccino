@@ -21,16 +21,16 @@ var defaultRecordIdentifierKey = @"id",
     classAttributeNames  = [CPDictionary dictionary],
 	notificationInfo = [[CappuccinoRestfulNotification alloc] init];
 
-CappuccinoRestfulResourceWillLoad = @"CappucinoRestfulResourceWillLoad";
-CappuccinoRestfulResourceDidLoad = @"CappuccinoRestfulResourceDidLoad";
-CappuccinoRestfulResourcesWillLoad = @"CappucinoRestfulResourcesWillLoad";
-CappuccinoRestfulResourcesDidLoad = @"CappuccinoRestfulResourcesDidLoad";
-CappuccinoRestfulResourceWillSave = @"CappuccinoRestfulResourceWillSave";
-CappuccinoRestfulResourceDidSave = @"CappuccinoRestfulRecordDidSave";
-CappuccinoRestfulResourceDidNotSave = @"CappuccinoRestfulResourceDidNotSave";
-CappuccinoRestfulResourceWillDestroy = @"CappuccinoRestfulResourceWillDestroy";
-CappuccinoRestfulResourceDidDestroy = @"CappuccinoRestfulResourceDidDestroy";
-CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestroy";
+RestfulCappuccinoResourceWillLoad = @"RestfulCappucinoResourceWillLoad";
+RestfulCappuccinoResourceDidLoad = @"RestfulCappuccinoResourceDidLoad";
+RestfulCappuccinoResourcesWillLoad = @"CappucinoRestfulResourcesWillLoad";
+RestfulCappuccinoResourcesDidLoad = @"RestfulCappuccinoResourcesDidLoad";
+RestfulCappuccinoResourceWillSave = @"RestfulCappuccinoResourceWillSave";
+RestfulCappuccinoResourceDidSave = @"CappuccinoRestfulRecordDidSave";
+RestfulCappuccinoResourceDidNotSave = @"RestfulCappuccinoResourceDidNotSave";
+RestfulCappuccinoResourceWillDestroy = @"RestfulCappuccinoResourceWillDestroy";
+RestfulCappuccinoResourceDidDestroy = @"RestfulCappuccinoResourceDidDestroy";
+RestfulCappuccinoResourceDidNotDestroy = @"RestfulCappuccinoResourceDidNotDestroy";
 
 @implementation RestfulCappuccino : CPObject
 {
@@ -53,48 +53,48 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 	}
     if ([anObserver respondsToSelector:@selector(resourceDidLoad:)]) 
 	{
-	    [center removeObserver:anObserver name:CappuccinoRestfulResourceDidLoad object:self];
-        [center addObserver:anObserver selector:@selector(resourceDidLoad:) name:CappuccinoRestfulResourceDidLoad object:self];
+	    [center removeObserver:anObserver name:RestfulCappuccinoResourceDidLoad object:self];
+        [center addObserver:anObserver selector:@selector(resourceDidLoad:) name:RestfulCappuccinoResourceDidLoad object:self];
 	}
     if ([anObserver respondsToSelector:@selector(resourcesWillLoad:)])
 	{
-		[center removeObserver:anObserver name:CappuccinoRestfulResourcesWillLoad object:self];
-        [center addObserver:anObserver selector:@selector(resourcesWillLoad:) name:CappuccinoRestfulResourcesWillLoad object:self];
+		[center removeObserver:anObserver name:RestfulCappuccinoResourcesWillLoad object:self];
+        [center addObserver:anObserver selector:@selector(resourcesWillLoad:) name:RestfulCappuccinoResourcesWillLoad object:self];
 	}    
     if ([anObserver respondsToSelector:@selector(resourcesDidLoad:)]) 
 	{
-	    [center removeObserver:anObserver name:CappuccinoRestfulResourcesDidLoad object:self];
-        [center addObserver:anObserver selector:@selector(resourcesDidLoad:) name:CappuccinoRestfulResourcesDidLoad object:self];
+	    [center removeObserver:anObserver name:RestfulCappuccinoResourcesDidLoad object:self];
+        [center addObserver:anObserver selector:@selector(resourcesDidLoad:) name:RestfulCappuccinoResourcesDidLoad object:self];
 	}	
     if ([anObserver respondsToSelector:@selector(resourceWillSave:)])
 	{
-	    [center removeObserver:anObserver name:CappuccinoRestfulResourceWillSave object:self];
-        [center addObserver:anObserver selector:@selector(resourceWillSave:) name:CappuccinoRestfulResourceWillSave object:self];
+	    [center removeObserver:anObserver name:RestfulCappuccinoResourceWillSave object:self];
+        [center addObserver:anObserver selector:@selector(resourceWillSave:) name:RestfulCappuccinoResourceWillSave object:self];
 	}
 	if ([anObserver respondsToSelector:@selector(resourceDidSave:)])
 	{
-		[center removeObserver:anObserver name:CappuccinoRestfulResourceDidSave object:self];
-        [center addObserver:anObserver selector:@selector(resourceDidSave:) name:CappuccinoRestfulResourceDidSave object:self];
+		[center removeObserver:anObserver name:RestfulCappuccinoResourceDidSave object:self];
+        [center addObserver:anObserver selector:@selector(resourceDidSave:) name:RestfulCappuccinoResourceDidSave object:self];
 	}
 	if ([anObserver respondsToSelector:@selector(resourceDidNotSave:)])
 	{
-		[center removeObserver:anObserver name:CappuccinoRestfulResourceDidNotSave object:self];
-        [center addObserver:anObserver selector:@selector(resourceDidNotSave:) name:CappuccinoRestfulResourceDidNotSave object:self];
+		[center removeObserver:anObserver name:RestfulCappuccinoResourceDidNotSave object:self];
+        [center addObserver:anObserver selector:@selector(resourceDidNotSave:) name:RestfulCappuccinoResourceDidNotSave object:self];
 	}
 	if ([anObserver respondsToSelector:@selector(resourceWillDestroy:)])
 	{
-		[center removeObserver:anObserver name:CappuccinoRestfulResourceWillDestroy object:self];
-        [center addObserver:anObserver selector:@selector(resourceWillDestroy:) name:CappuccinoRestfulResourceWillDestroy object:self];
+		[center removeObserver:anObserver name:RestfulCappuccinoResourceWillDestroy object:self];
+        [center addObserver:anObserver selector:@selector(resourceWillDestroy:) name:RestfulCappuccinoResourceWillDestroy object:self];
 	}
 	if ([anObserver respondsToSelector:@selector(resourceDidDestroy:)])
 	{
-		[center removeObserver:anObserver name:CappuccinoRestfulResourceDidDestroy object:self];
-        [center addObserver:anObserver selector:@selector(resourceDidDestroy:) name:CappuccinoRestfulResourceDidDestroy object:self];
+		[center removeObserver:anObserver name:RestfulCappuccinoResourceDidDestroy object:self];
+        [center addObserver:anObserver selector:@selector(resourceDidDestroy:) name:RestfulCappuccinoResourceDidDestroy object:self];
 	}
 	if ([anObserver respondsToSelector:@selector(resourceDidNotDestroy:)])
 	{
-		[center removeObserver:anObserver name:CappuccinoRestfulResourceDidNotDestroy object:self];
-        [center addObserver:anObserver selector:@selector(resourceDidNotDestroy:) name:CappuccinoRestfulResourceDidNotDestroy object:self];
+		[center removeObserver:anObserver name:RestfulCappuccinoResourceDidNotDestroy object:self];
+        [center addObserver:anObserver selector:@selector(resourceDidNotDestroy:) name:RestfulCappuccinoResourceDidNotDestroy object:self];
 	}
 
 }
@@ -103,15 +103,15 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 {
     var center = [CPNotificationCenter defaultCenter];
     [center removeObserver:anObserver name:CappuccinoRestfulResourceWillLoad object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourceDidLoad object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourcesWillLoad object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourcesDidLoad object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourceWillSave object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourceDidSave object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourceDidNotSave object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourceWillDestroy object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourceDidDestroy object:self];
-    [center removeObserver:anObserver name:CappuccinoRestfulResourceDidNotDestroy object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourceDidLoad object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourcesWillLoad object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourcesDidLoad object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourceWillSave object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourceDidSave object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourceDidNotSave object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourceWillDestroy object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourceDidDestroy object:self];
+    [center removeObserver:anObserver name:RestfulCappuccinoResourceDidNotDestroy object:self];
 }
 
 + (CPString)identifierKey
@@ -473,7 +473,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
         //notificationName = [self className] + "ResourceDidLoad",
         resource         = [self new];
     [resource setAttributes:attributes];	
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourceDidLoad	 object:resource];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourceDidLoad	 object:resource];
     return resource;
 }
 
@@ -506,7 +506,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
     [request setHTTPMethod:@"GET"];
 
 
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourcesWillLoad object:self];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourcesWillLoad object:self];
 
     return request;
 }
@@ -535,7 +535,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 	[notificationInfo setModelName:[self className]];
 	[notificationInfo setEventType:@"Load"];
 	[notificationInfo setEventData:resourceArray];
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourcesDidLoad object:self];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourcesDidLoad object:self];
     return resourceArray;
 }
 
@@ -563,7 +563,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
     [request setHTTPMethod:identifier ? @"PUT" : @"POST"];
     [request setHTTPBody:[CPString JSONFromObject:[self attributes]]];
 
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourceWillSave object:self];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourceWillSave object:self];
     return request;
 }
 
@@ -586,7 +586,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 
     [self setAttributes:attributes];
 	[notificationInfo setEventData:self];
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourceDidSave object:self];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourceDidSave object:self];
 }
 
 - (void)resourceDidNotSaveWithResponse:(CPString)aResponse andRequestor:(id)theRequestor
@@ -601,7 +601,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
     } else {
 		[notificationInfo setEventType:@"Create"];
     }
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourceDidNotSave object:self];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourceDidNotSave object:self];
 }
 
 - (CPURLRequest)resourceWillDestroyWithRequestor:(id)theRequestor
@@ -621,7 +621,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 	request.eventType = "Destroy";
     [request setHTTPMethod:@"DELETE"];
 
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourceWillDestroy object:self];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourceWillDestroy object:self];
     return request;
 }
 
@@ -632,7 +632,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 	[notificationInfo setEventData:[identifier]];
 	[notificationInfo setEventType:@"Destroy"];
 
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourceDidDestroy object:self];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourceDidDestroy object:self];
 }
 
 - (void)resourceDidNotDestroyWithRequestor:(id)theRequestor
@@ -642,7 +642,7 @@ CappuccinoRestfulResourceDidNotDestroy = @"CappuccinoRestfulResourceDidNotDestro
 	[notificationInfo setEventData:[identifier]];
 	[notificationInfo setEventType:@"Delete"];
 	
-    [[CPNotificationCenter defaultCenter] postNotificationName:CappuccinoRestfulResourceDidNotDestroy object:self];
+    [[CPNotificationCenter defaultCenter] postNotificationName:RestfulCappuccinoResourceDidNotDestroy object:self];
 }
 
 @end
