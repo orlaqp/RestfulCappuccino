@@ -51,7 +51,7 @@ Restful Cappuccino generate notifications for every single CRUD method either sy
 		id			requestor @accessors; // Who request the method.
 		CPString	modelName @accessors; // The model that requested the method, in our example this would "Student"
 		CPString	eventType @accessors; // Type of the event: Load, Save, Update, Remove is mostly for internal use.
-		id			eventParameters @accessors; // The parameters passed to the request (not implemented yet, is coming soon)
+		id			eventParameters @accessors; // The parameters passed to the request (only used in Read operations)
 		id			eventData @accessors; // Some data realated to the method's call. It vary depending on the method.
 	}
 
