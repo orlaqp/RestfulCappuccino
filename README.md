@@ -39,13 +39,24 @@ Restful Cappuccino generate notifications for every single CRUD method either sy
 
 	@end
 
-Once you are subscribe to the notification, you could retrieve this information like this:
+There are two ways to subscribe to a notification.
+
+1- Using the addObserver static method. 
+	
+	[Student addObserver:self];
+	
+2- Or subscribing to the notification directly: 
+	
+	[[CPNotificationCenter defaultCenter] addObserver:anObserver selector:@selector(resourceWillLoad:) name:CappuccinoRestfulResourceWillLoad object:self]  
+
+
+Once you are subscribe to the notification, you could retrieve the RestfulCappuccinoNotification instance like this:
 
 	[[aNotification object] restfulNotification] // This call will return the RestfulCappuccinoNotification object for that notification
 
 
 
-## How to Load Data ##
+## How to Retrieve Data ##
 
 Retrieve all records (the http request would look like this server_address/students/ ) 
 
