@@ -10,7 +10,7 @@ class CappuccinoController < ApplicationController
     for model in models
 
       cappuccino_model = "@import <CPFoundation/CPObject.j>\n\n"
-      cappuccino_model += "@implementation #{model.name} : CPObject {\n"
+      cappuccino_model += "@implementation #{model.name} : RestfulCappuccino {\n"
       for column in model.columns
         column_name = column.name.camelize
         case column.type
