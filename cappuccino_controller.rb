@@ -17,7 +17,7 @@ class CappuccinoController < ApplicationController
           when :string
             cappuccino_model += "   CPString     #{column_name};\n"
           when :integer
-            cappuccino_model += "   CPInteger    #{column_name};\n"
+            cappuccino_model += "   CPNumber     #{column_name};\n"
           when :datetime
             cappuccino_model += "   CPDate       #{column_name};\n"
         end
